@@ -1,4 +1,28 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-#{welcome /}
+<h3>Central de piadas</h3>
+
+<table border="1">
+	#{list items:humoristas, as:'humorista'}
+			<tr>
+				<td colspan="3">${humorista?.nome}</td>
+			</tr>
+			#{list items:humorista.piadas, as:'piada'}
+				<tr>
+					<td>${piada?.descricao.substring(0,15)}... <a href="@{Application.mostrar(piada.id)}"> ver mais</a></td>
+					<td><a href="@{Application.editar(piada.id)}">Editar</a></td>
+					<td><a href="@{Application.deletar(piada.id)}">Deletar</a></td>
+				</tr>
+			#{/list}
+			<tr>
+				<td colspan="3">&nbsp;</td>
+			</tr>
+			
+	#{/list}
+</table>
+
+<p/>
+<div id="comandos">
+	<a href="@{Application.adicionar()}">Adicionar</a>
+</div>

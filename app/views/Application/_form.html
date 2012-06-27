@@ -1,0 +1,10 @@
+#{form @Application.salvar(), id:'adicionarPiadaForm'}
+	<input type="hidden" name="piada.id" id="id" value="${piada?.id}"/>
+
+	<label for="humorista">Humorista: </label>#{select 'piada.humorista.id', value:piada?.humorista?.id, items:humoristas, valueProperty:'id', labelProperty:'nome', id:'selectHumorista' /}
+	<p/>
+	
+	<label>Piada: </label><input name="piada.descricao" type="text" id="descricao" value="${piada?.descricao}"/><p/>
+	
+	<input type="submit" value="Salvar" />
+#{/form}
